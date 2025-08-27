@@ -37,4 +37,4 @@ def extract_pdf_text(pdf_path: str, output_path: str) -> None:
 
 if __name__ == "__main__":
     # Extract text from the laws PDF
-    extract_pdf_text('docs/laws.pdf', 'docs/raw_pdf_text.txt')
+    extract_pdf_text('../docs/laws.pdf', '../docs/raw_pdf_text.txt')
