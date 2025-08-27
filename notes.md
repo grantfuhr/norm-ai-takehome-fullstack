@@ -63,3 +63,11 @@ docker run -e OPENAI_API_KEY=$OPENAI_API_KEY -p 8000:80 norm-ai-takehome
 
 With more time I would do a docker compose setup with the qdrant db in its own container to simulate better
 (or use a live qdrant dev instance)
+
+
+## additions
+tried changing the document parsing and loading and got slightly better results, 
+it seems like context management is key. This now stores entire sections as
+documents, this works for this take home exercise, but I think the proper approach would be 
+heirarchically linked documents ( as well as hyperlinked documents)
+hits on certain text retrieve all parent documents, as well as linked subsections etc

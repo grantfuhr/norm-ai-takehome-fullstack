@@ -22,7 +22,7 @@ Hit "Try it out" and enter your query to play with the application
 The two main pieces to the application are the DocumentService and QdrantService. 
 
 `app/document.py`
-The DocumentService parses pdf documents, looks through sections and subsections, and labels them heirarchically. An open todo would be to relate them heirchically as Documents in the database
+The DocumentService parses pdf documents, looks through sections and subsections, and labels them. Everything under a subsection is stored together, as I got better results with this dataset. An open todo would be to relate them heirchically as Documents in the database, and allow for linking subsections that reference each other as well as parents and children.
 
 `app/qdrant.py`
 The Qdrant Service sets up a Qdrant vector database locally, and queries the parsed documents. I increased the "k" value because I saw better results this way. This reconstructs the original text placement based on metadata from each of the documents.

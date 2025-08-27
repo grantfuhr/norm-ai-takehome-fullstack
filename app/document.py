@@ -1,7 +1,7 @@
 import os
 import pymupdf
 import re
-from typing import List
+from typing import List, Dict
 from llama_index.core.schema import Document
 
 
@@ -14,6 +14,7 @@ class DocumentService:
     def create_documents(self, file_path: str = "docs/laws.pdf") -> List[Document]:
         """
         Parse PDF file and create structured Document objects with hierarchical metadata.
+        Groups related sections together for better context.
         
         Args:
             file_path: Path to the PDF file to process
@@ -36,7 +37,12 @@ class DocumentService:
         
         # Clean and parse the text
         cleaned_text = self._clean_pdf_text(raw_text)
-        return self._parse_hierarchical_structure(cleaned_text, raw_text)
+        
+        # First, parse all sections
+        all_sections = self._parse_all_sections(cleaned_text, raw_text)
+        
+        # Then group them by main section and create consolidated documents
+        return self._create_consolidated_documents(all_sections)
     
     def _clean_pdf_text(self, text: str) -> str:
         """
@@ -82,15 +88,14 @@ class DocumentService:
         
         return '\n'.join(cleaned_lines)
     
-    def _parse_hierarchical_structure(self, text: str, raw_text: str = "") -> List[Document]:
+    def _parse_all_sections(self, text: str, raw_text: str = "") -> Dict:
         """
-        Parse the cleaned text into hierarchical document structure.
+        Parse all sections into a dictionary structure.
         """
-        documents = []
+        sections_data = {}
         lines = text.split('\n')
         
         current_section = None
-        current_subsection = None
         current_content = []
         section_titles = {}
         
@@ -108,10 +113,10 @@ class DocumentService:
             if section_match:
                 # Save previous section if exists
                 if current_section and current_content:
-                    self._create_section_document(
-                        documents, current_section, current_content, 
-                        section_titles, lines, raw_text
-                    )
+                    sections_data[current_section] = {
+                        'content': current_content.copy(),
+                        'title': section_titles.get(current_section, "")
+                    }
                 
                 # Start new section
                 section_num = section_match.group(1)
@@ -137,99 +142,157 @@ class DocumentService:
         
         # Handle the last section
         if current_section and current_content:
-            self._create_section_document(
-                documents, current_section, current_content, 
-                section_titles, lines, raw_text
+            sections_data[current_section] = {
+                'content': current_content.copy(),
+                'title': section_titles.get(current_section, "")
+            }
+        
+        return {'sections': sections_data, 'titles': section_titles, 'raw_text': raw_text}
+    
+    def _create_consolidated_documents(self, all_sections: Dict) -> List[Document]:
+        """
+        Create consolidated documents by grouping related sections.
+        """
+        documents = []
+        sections_data = all_sections['sections']
+        section_titles = all_sections['titles']
+        raw_text = all_sections['raw_text']
+        
+        # Group sections by main section (first number)
+        main_sections = {}
+        
+        for section_id, section_info in sections_data.items():
+            main_section_num = section_id.split('.')[0]
+            
+            if main_section_num not in main_sections:
+                main_sections[main_section_num] = []
+            
+            main_sections[main_section_num].append({
+                'id': section_id,
+                'title': section_info['title'],
+                'content': section_info['content']
+            })
+        
+        # Create a consolidated document for each main section
+        for main_section_num, sections in main_sections.items():
+            # Sort sections by their ID to maintain order
+            sections.sort(key=lambda x: [int(n) for n in x['id'].split('.')])
+            
+            # Build consolidated text that includes all subsections
+            consolidated_text_parts = []
+            
+            # Add main section title
+            main_title = section_titles.get(main_section_num, f"Section {main_section_num}")
+            consolidated_text_parts.append(f"MAIN SECTION: {main_title}")
+            consolidated_text_parts.append("")
+            
+            # Track metadata
+            all_page_numbers = set()
+            subsection_titles = []
+            
+            # Add each section with clear hierarchy
+            for section in sections:
+                section_id = section['id']
+                hierarchy_level = len(section_id.split('.'))
+                
+                # Skip top-level sections that are just headers
+                if hierarchy_level == 1 and len(section['content']) == 1:
+                    # Check if this has subsections
+                    has_subsections = any(
+                        s['id'].startswith(section_id + '.') 
+                        for s in sections 
+                        if s['id'] != section_id
+                    )
+                    if has_subsections:
+                        continue
+                
+                # Format section based on hierarchy
+                indent = "  " * (hierarchy_level - 1)
+                
+                # Add section header with clear labeling
+                consolidated_text_parts.append(f"{indent}[Section {section_id}] {section['title']}")
+                
+                # Add section content (skip the first item which is the title)
+                content_without_title = section['content'][1:] if len(section['content']) > 1 else []
+                if content_without_title:
+                    content_text = ' '.join(content_without_title)
+                    consolidated_text_parts.append(f"{indent}{content_text}")
+                consolidated_text_parts.append("")  # Empty line for readability
+                
+                # Track subsection titles for metadata
+                if hierarchy_level > 1:
+                    subsection_titles.append(f"{section_id}: {section['title']}")
+                
+                # Find page number for this section
+                page_num = self._find_page_number(section['content'], raw_text)
+                all_page_numbers.add(page_num)
+            
+            # Create the consolidated text
+            consolidated_text = "\n".join(consolidated_text_parts)
+            
+            # Build comprehensive metadata
+            metadata = {
+                'main_section': main_section_num,
+                'main_title': main_title,
+                'subsections': subsection_titles,
+                'subsection_count': len(sections) - 1,  # Exclude main section if it's just a header
+                'page_numbers': sorted(list(all_page_numbers)),
+                'section_ids': [s['id'] for s in sections],
+                # Add searchable full path for all sections
+                'full_paths': [self._build_full_path(s['id'], section_titles) for s in sections]
+            }
+            
+            # Create document
+            doc = Document(
+                text=consolidated_text,
+                metadata=metadata,
+                doc_id=f"main_section_{main_section_num}"
             )
+            
+            documents.append(doc)
         
         return documents
     
-    def _create_section_document(self, documents: List[Document], section_id: str, 
-                                content: List[str], section_titles: dict, 
-                                 all_lines: List[str], raw_text: str = ""):
+    def _find_page_number(self, content: List[str], raw_text: str) -> int:
         """
-        Create a Document object for a section with proper metadata.
+        Find the page number where the content appears.
         """
-        # Join content and clean up
-        full_text = ' '.join(content)
-        
-        # Determine hierarchy level
-        hierarchy_level = len(section_id.split('.'))
-        
-        # Skip creating documents for top-level sections that only contain a title
-        # and have subsections (these are just headers)
-        if hierarchy_level == 1 and len(content) == 1:
-            # Check if this section has any subsections by looking through all lines
-            has_subsections = False
-            for line in all_lines:
-                line = line.strip()
-                # Look for section patterns that are subsections of current section
-                section_match = re.match(r'^(\d+(\.\d+)*)\.', line)
-                if section_match:
-                    found_section = section_match.group(1)
-                    if found_section.startswith(section_id + '.'):
-                        has_subsections = True
-                        break
-            
-            # Only skip if it has subsections (meaning it's just a header)
-            if has_subsections:
-                return
-        
-        # Get section title
-        section_title = section_titles.get(section_id, content[0] if content else "")
-        
-        # Determine page number based on page markers in the text
         page_num = 1  # Default to page 1
-        if content:
-            # Look for the section content in the original raw text to find its page
-            first_content = content[0]
-            text_lines = raw_text.split('\n') if raw_text else []
-            
-            current_page = 1
-            for line in text_lines:
-                if line.startswith('Page '):
-                    try:
-                        current_page = int(line.split(':')[0].replace('Page ', ''))
-                    except (ValueError, IndexError):
-                        pass
-                elif first_content in line:
-                    page_num = current_page
+        
+        if content and raw_text:
+            # Use the first meaningful content line
+            search_text = None
+            for line in content:
+                if len(line) > 10:  # Skip very short lines
+                    search_text = line
                     break
+            
+            if search_text:
+                text_lines = raw_text.split('\n')
+                current_page = 1
+                
+                for line in text_lines:
+                    if line.startswith('Page '):
+                        try:
+                            current_page = int(line.split(':')[0].replace('Page ', ''))
+                        except (ValueError, IndexError):
+                            pass
+                    elif search_text in line:
+                        page_num = current_page
+                        break
         
-        # Create parent section reference
-        parent_section = None
-        if hierarchy_level > 1:
-            parts = section_id.split('.')
-            parent_section = '.'.join(parts[:-1])
-        
-        # Get main section for context
-        main_section = section_id.split('.')[0]
-        main_title = section_titles.get(main_section, "")
-        
-        # Create full path for context
+        return page_num
+    
+    def _build_full_path(self, section_id: str, section_titles: dict) -> str:
+        """
+        Build the full hierarchical path for a section.
+        """
         path_parts = []
         section_parts = section_id.split('.')
+        
         for i in range(len(section_parts)):
             partial_section = '.'.join(section_parts[:i+1])
             title = section_titles.get(partial_section, f"Section {partial_section}")
             path_parts.append(f"{partial_section}. {title}")
         
-        full_path = " > ".join(path_parts)
-        
-        # Create document
-        document = Document(
-            text=full_text,
-            metadata={
-                'section_id': section_id,
-                'section_title': section_title,
-                'parent_section': parent_section,
-                'main_section': main_section,
-                'main_title': main_title,
-                'hierarchy_level': hierarchy_level,
-                'full_path': full_path,
-                'page_number': page_num
-            }
-        )
-        
-        documents.append(document)
-
+        return " > ".join(path_parts)

@@ -32,8 +32,9 @@ class QdrantService:
             vector_store=vstore
             )
 
-    def load(self, docs = list[Document]):
-        self.index.insert_nodes(docs)
+    def load(self, docs: list[Document]):
+        for doc in docs:
+            self.index.insert(doc)
     
     def query(self, query_str: str) -> Output:
         # Initialize CitationQueryEngine with similarity_top_k parameter
@@ -50,9 +51,11 @@ class QdrantService:
         if hasattr(response, 'source_nodes'):
             for i, node in enumerate(response.source_nodes, 1):
                 # Create a more informative source using the metadata
-                full_path = node.metadata.get('full_path', 'Unknown section')
-                page_num = node.metadata.get('page_number', 'Unknown page')
-                source_info = f"{full_path} (Page {page_num})"
+                main_title = node.metadata.get('main_title', 'Unknown section')
+                main_section = node.metadata.get('main_section', '')
+                page_numbers = node.metadata.get('page_numbers', [])
+                page_info = f"Page {', '.join(map(str, page_numbers))}" if page_numbers else 'Unknown page'
+                source_info = f"Section {main_section}: {main_title} ({page_info})"
                 
                 citation = Citation(
                     source=source_info,

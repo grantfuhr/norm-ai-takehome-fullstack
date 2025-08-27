@@ -1,0 +1,336 @@
+[
+  {
+    "index": 0,
+    "text": "MAIN SECTION: Peace\n\n  [Section 1.1] The law requires petty lords and landed knights to take their disputes to their liege lord, and abide by his judgment, while disputes between great houses were adjudicated by the Crown.\n",
+    "metadata": {
+      "main_section": "1",
+      "main_title": "Peace",
+      "subsections": [
+        "1.1: The law requires petty lords and landed knights to take their disputes to their liege lord, and abide by his judgment, while disputes between great houses were adjudicated by the Crown."
+      ],
+      "subsection_count": 1,
+      "page_numbers": [
+        1
+      ],
+      "section_ids": [
+        "1",
+        "1.1"
+      ],
+      "full_paths": [
+        "1. Peace",
+        "1. Peace > 1.1. The law requires petty lords and landed knights to take their disputes to their liege lord, and abide by his judgment, while disputes between great houses were adjudicated by the Crown."
+      ]
+    },
+    "text_length": 223
+  },
+  {
+    "index": 1,
+    "text": "MAIN SECTION: Religion\n\n  [Section 2.1] king Maegor raised a set of laws which forbade holy men from carrying arms\n",
+    "metadata": {
+      "main_section": "2",
+      "main_title": "Religion",
+      "subsections": [
+        "2.1: king Maegor raised a set of laws which forbade holy men from carrying arms"
+      ],
+      "subsection_count": 1,
+      "page_numbers": [
+        1
+      ],
+      "section_ids": [
+        "2",
+        "2.1"
+      ],
+      "full_paths": [
+        "2. Religion",
+        "2. Religion > 2.1. king Maegor raised a set of laws which forbade holy men from carrying arms"
+      ]
+    },
+    "text_length": 115
+  },
+  {
+    "index": 2,
+    "text": "MAIN SECTION: Widows\n\n  [Section 3.1] The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit.\n\n    [Section 3.1.1] However, the law requires the heirs to maintain their father's surviving widow, no matter whether she had been a second, third, or even later wife, under the same conditions as she had been before her husband’s death.\n\n    [Section 3.1.2] The widows could no longer be driven from their late husband’s castle, deprived of her servants or possessions, or her income.\n\n    [Section 3.1.3] The law similarly prevented men from disinheriting the children from an earlier marriage in favor of children from a later marriage\n",
+    "metadata": {
+      "main_section": "3",
+      "main_title": "Widows",
+      "subsections": [
+        "3.1: The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit.",
+        "3.1.1: However, the law requires the heirs to maintain their father's surviving widow, no matter whether she had been a second, third, or even later wife, under the same conditions as she had been before her husband’s death.",
+        "3.1.2: The widows could no longer be driven from their late husband’s castle, deprived of her servants or possessions, or her income.",
+        "3.1.3: The law similarly prevented men from disinheriting the children from an earlier marriage in favor of children from a later marriage"
+      ],
+      "subsection_count": 4,
+      "page_numbers": [
+        1
+      ],
+      "section_ids": [
+        "3",
+        "3.1",
+        "3.1.1",
+        "3.1.2",
+        "3.1.3"
+      ],
+      "full_paths": [
+        "3. Widows",
+        "3. Widows > 3.1. The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit.",
+        "3. Widows > 3.1. The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit. > 3.1.1. However, the law requires the heirs to maintain their father's surviving widow, no matter whether she had been a second, third, or even later wife, under the same conditions as she had been before her husband’s death.",
+        "3. Widows > 3.1. The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit. > 3.1.2. The widows could no longer be driven from their late husband’s castle, deprived of her servants or possessions, or her income.",
+        "3. Widows > 3.1. The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit. > 3.1.3. The law similarly prevented men from disinheriting the children from an earlier marriage in favor of children from a later marriage"
+      ]
+    },
+    "text_length": 687
+  },
+  {
+    "index": 3,
+    "text": "MAIN SECTION: Trials\n\n  [Section 4.1] Trials of the Crown\n\n    [Section 4.1.1] Trials, at least among the nobility, often begin with a prayer from a septon beseeching the Father Above to guide them towards justice. The accused and witnesses are sworn to honesty before he gives testimony at a trial. The accused is allowed to be present as witnesses give their testimony, in front of one or multiple judges.\n\n  [Section 4.2] Trials by combat\n\n    [Section 4.2.1] Any knight accused of wrongdoing is allowed by law to demand a trial by combat. The right to a trial by combat also extends to nobles who are not knighted.\n\n    [Section 4.2.2] The accused and accusers are allowed to have champions fight in their place. When a person is killed in a trial by combat, by law it is not considered murder.\n\n    [Section 4.2.3] A more ancient custom, though seldom used, is a trial of seven, in which seven men fight on the side of the accusing party, and seven on the side of the accused party\n\n    [Section 4.2.4] When the person who stands accused is royalty, their champion has to be a knight of the Kingsguard. When the accuser is royalty, however, they are within their rights to select a champion who is not a sworn member of the Kingsguard.\n",
+    "metadata": {
+      "main_section": "4",
+      "main_title": "Trials",
+      "subsections": [
+        "4.1: Trials of the Crown",
+        "4.1.1: Trials, at least among the nobility, often begin with a prayer from a septon beseeching the Father Above to guide them towards justice. The accused and witnesses are sworn to honesty before he gives testimony at a trial. The accused is allowed to be present as witnesses give their testimony, in front of one or multiple judges.",
+        "4.2: Trials by combat",
+        "4.2.1: Any knight accused of wrongdoing is allowed by law to demand a trial by combat. The right to a trial by combat also extends to nobles who are not knighted.",
+        "4.2.2: The accused and accusers are allowed to have champions fight in their place. When a person is killed in a trial by combat, by law it is not considered murder.",
+        "4.2.3: A more ancient custom, though seldom used, is a trial of seven, in which seven men fight on the side of the accusing party, and seven on the side of the accused party",
+        "4.2.4: When the person who stands accused is royalty, their champion has to be a knight of the Kingsguard. When the accuser is royalty, however, they are within their rights to select a champion who is not a sworn member of the Kingsguard."
+      ],
+      "subsection_count": 7,
+      "page_numbers": [
+        1
+      ],
+      "section_ids": [
+        "4",
+        "4.1",
+        "4.1.1",
+        "4.2",
+        "4.2.1",
+        "4.2.2",
+        "4.2.3",
+        "4.2.4"
+      ],
+      "full_paths": [
+        "4. Trials",
+        "4. Trials > 4.1. Trials of the Crown",
+        "4. Trials > 4.1. Trials of the Crown > 4.1.1. Trials, at least among the nobility, often begin with a prayer from a septon beseeching the Father Above to guide them towards justice. The accused and witnesses are sworn to honesty before he gives testimony at a trial. The accused is allowed to be present as witnesses give their testimony, in front of one or multiple judges.",
+        "4. Trials > 4.2. Trials by combat",
+        "4. Trials > 4.2. Trials by combat > 4.2.1. Any knight accused of wrongdoing is allowed by law to demand a trial by combat. The right to a trial by combat also extends to nobles who are not knighted.",
+        "4. Trials > 4.2. Trials by combat > 4.2.2. The accused and accusers are allowed to have champions fight in their place. When a person is killed in a trial by combat, by law it is not considered murder.",
+        "4. Trials > 4.2. Trials by combat > 4.2.3. A more ancient custom, though seldom used, is a trial of seven, in which seven men fight on the side of the accusing party, and seven on the side of the accused party",
+        "4. Trials > 4.2. Trials by combat > 4.2.4. When the person who stands accused is royalty, their champion has to be a knight of the Kingsguard. When the accuser is royalty, however, they are within their rights to select a champion who is not a sworn member of the Kingsguard."
+      ]
+    },
+    "text_length": 1241
+  },
+  {
+    "index": 4,
+    "text": "MAIN SECTION: Taxes\n\n  [Section 5.1] In the Seven Kingdoms, taxes are collected locally.\n\n    [Section 5.1.1] Lords pay taxes to the crown.\n\n    [Section 5.1.2] The Great Houses gather the taxes from their region.\n\n      [Section 5.1.2.1] The Great Houses subsequently pay their taxes to the Crown. An exception are taxes owed to the Night’s Watch by the villages and holdfasts located in the New Gift which are paid in kind, not in gold.\n\n  [Section 5.2] Lords can have treasurers in their service to handle the incoming taxes.\n",
+    "metadata": {
+      "main_section": "5",
+      "main_title": "Taxes",
+      "subsections": [
+        "5.1: In the Seven Kingdoms, taxes are collected locally.",
+        "5.1.1: Lords pay taxes to the crown.",
+        "5.1.2: The Great Houses gather the taxes from their region.",
+        "5.1.2.1: The Great Houses subsequently pay their taxes to the Crown. An exception are taxes owed to the Night’s Watch by the villages and holdfasts located in the New Gift which are paid in kind, not in gold.",
+        "5.2: Lords can have treasurers in their service to handle the incoming taxes."
+      ],
+      "subsection_count": 5,
+      "page_numbers": [
+        1,
+        2
+      ],
+      "section_ids": [
+        "5",
+        "5.1",
+        "5.1.1",
+        "5.1.2",
+        "5.1.2.1",
+        "5.2"
+      ],
+      "full_paths": [
+        "5. Taxes",
+        "5. Taxes > 5.1. In the Seven Kingdoms, taxes are collected locally.",
+        "5. Taxes > 5.1. In the Seven Kingdoms, taxes are collected locally. > 5.1.1. Lords pay taxes to the crown.",
+        "5. Taxes > 5.1. In the Seven Kingdoms, taxes are collected locally. > 5.1.2. The Great Houses gather the taxes from their region.",
+        "5. Taxes > 5.1. In the Seven Kingdoms, taxes are collected locally. > 5.1.2. The Great Houses gather the taxes from their region. > 5.1.2.1. The Great Houses subsequently pay their taxes to the Crown. An exception are taxes owed to the Night’s Watch by the villages and holdfasts located in the New Gift which are paid in kind, not in gold.",
+        "5. Taxes > 5.2. Lords can have treasurers in their service to handle the incoming taxes."
+      ]
+    },
+    "text_length": 529
+  },
+  {
+    "index": 5,
+    "text": "MAIN SECTION: Thievery\n\n  [Section 6.1] It is customary for a thief to be punished by losing a finger or a hand.\n\n  [Section 6.2] Pickpockets can likewise be punished by cutting off a hand.\n\n  [Section 6.3] Those who steal from a sept can be considered to have stolen from the gods, and thus receive a harsher punishment.\n",
+    "metadata": {
+      "main_section": "6",
+      "main_title": "Thievery",
+      "subsections": [
+        "6.1: It is customary for a thief to be punished by losing a finger or a hand.",
+        "6.2: Pickpockets can likewise be punished by cutting off a hand.",
+        "6.3: Those who steal from a sept can be considered to have stolen from the gods, and thus receive a harsher punishment."
+      ],
+      "subsection_count": 3,
+      "page_numbers": [
+        1,
+        2
+      ],
+      "section_ids": [
+        "6",
+        "6.1",
+        "6.2",
+        "6.3"
+      ],
+      "full_paths": [
+        "6. Thievery",
+        "6. Thievery > 6.1. It is customary for a thief to be punished by losing a finger or a hand.",
+        "6. Thievery > 6.2. Pickpockets can likewise be punished by cutting off a hand.",
+        "6. Thievery > 6.3. Those who steal from a sept can be considered to have stolen from the gods, and thus receive a harsher punishment."
+      ]
+    },
+    "text_length": 322
+  },
+  {
+    "index": 6,
+    "text": "MAIN SECTION: Poaching\n\n  [Section 7.1] Poaching is forbidden. Lords are generally not tolerant towards poachers and punishments for poaching can include being forced to join the Night's Watch, losing a hand, or being forced to row ships.\n",
+    "metadata": {
+      "main_section": "7",
+      "main_title": "Poaching",
+      "subsections": [
+        "7.1: Poaching is forbidden. Lords are generally not tolerant towards poachers and punishments for poaching can include being forced to join the Night's Watch, losing a hand, or being forced to row ships."
+      ],
+      "subsection_count": 1,
+      "page_numbers": [
+        1
+      ],
+      "section_ids": [
+        "7",
+        "7.1"
+      ],
+      "full_paths": [
+        "7. Poaching",
+        "7. Poaching > 7.1. Poaching is forbidden. Lords are generally not tolerant towards poachers and punishments for poaching can include being forced to join the Night's Watch, losing a hand, or being forced to row ships."
+      ]
+    },
+    "text_length": 239
+  },
+  {
+    "index": 7,
+    "text": "MAIN SECTION: Outlawry\n\n  [Section 8.1] Outlaws are generally sentenced to death by hanging.\n",
+    "metadata": {
+      "main_section": "8",
+      "main_title": "Outlawry",
+      "subsections": [
+        "8.1: Outlaws are generally sentenced to death by hanging."
+      ],
+      "subsection_count": 1,
+      "page_numbers": [
+        2
+      ],
+      "section_ids": [
+        "8",
+        "8.1"
+      ],
+      "full_paths": [
+        "8. Outlawry",
+        "8. Outlawry > 8.1. Outlaws are generally sentenced to death by hanging."
+      ]
+    },
+    "text_length": 93
+  },
+  {
+    "index": 8,
+    "text": "MAIN SECTION: Slavery\n\n  [Section 9.1] Slavery is illegal in the Seven Kingdoms.\n\n    [Section 9.1.1] Both the old gods and the Faith of the Seven consider slavery to be an abomination, and as such, there have been no slaves in the Seven Kingdoms for thousands of years\n\n    [Section 9.1.2] The punishment for selling people in the Seven Kingdoms is execution\n",
+    "metadata": {
+      "main_section": "9",
+      "main_title": "Slavery",
+      "subsections": [
+        "9.1: Slavery is illegal in the Seven Kingdoms.",
+        "9.1.1: Both the old gods and the Faith of the Seven consider slavery to be an abomination, and as such, there have been no slaves in the Seven Kingdoms for thousands of years",
+        "9.1.2: The punishment for selling people in the Seven Kingdoms is execution"
+      ],
+      "subsection_count": 3,
+      "page_numbers": [
+        1,
+        2
+      ],
+      "section_ids": [
+        "9",
+        "9.1",
+        "9.1.1",
+        "9.1.2"
+      ],
+      "full_paths": [
+        "9. Slavery",
+        "9. Slavery > 9.1. Slavery is illegal in the Seven Kingdoms.",
+        "9. Slavery > 9.1. Slavery is illegal in the Seven Kingdoms. > 9.1.1. Both the old gods and the Faith of the Seven consider slavery to be an abomination, and as such, there have been no slaves in the Seven Kingdoms for thousands of years",
+        "9. Slavery > 9.1. Slavery is illegal in the Seven Kingdoms. > 9.1.2. The punishment for selling people in the Seven Kingdoms is execution"
+      ]
+    },
+    "text_length": 360
+  },
+  {
+    "index": 9,
+    "text": "MAIN SECTION: Watch\n\n  [Section 10.1] An alternative for most punishments is joining the Night's Watch.\n\n    [Section 10.1.1] Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall.\n\n      [Section 10.1.1.1] Men of the Night's Watch are required to swear a vow, by which means their crimes are washed away and all debts are forgiven.\n\n      [Section 10.1.1.2] Breaking the oath made to the Night's Watch is punishable by death.\n\n      [Section 10.1.1.3] Refusing orders made by the Lord Commander of the Night's Watch can also be punishable by death.\n\n      [Section 10.1.1.4] Women are not allowed to join the Night's Watch.\n",
+    "metadata": {
+      "main_section": "10",
+      "main_title": "Watch",
+      "subsections": [
+        "10.1: An alternative for most punishments is joining the Night's Watch.",
+        "10.1.1: Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall.",
+        "10.1.1.1: Men of the Night's Watch are required to swear a vow, by which means their crimes are washed away and all debts are forgiven.",
+        "10.1.1.2: Breaking the oath made to the Night's Watch is punishable by death.",
+        "10.1.1.3: Refusing orders made by the Lord Commander of the Night's Watch can also be punishable by death.",
+        "10.1.1.4: Women are not allowed to join the Night's Watch."
+      ],
+      "subsection_count": 6,
+      "page_numbers": [
+        1,
+        2
+      ],
+      "section_ids": [
+        "10",
+        "10.1",
+        "10.1.1",
+        "10.1.1.1",
+        "10.1.1.2",
+        "10.1.1.3",
+        "10.1.1.4"
+      ],
+      "full_paths": [
+        "10. Watch",
+        "10. Watch > 10.1. An alternative for most punishments is joining the Night's Watch.",
+        "10. Watch > 10.1. An alternative for most punishments is joining the Night's Watch. > 10.1.1. Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall.",
+        "10. Watch > 10.1. An alternative for most punishments is joining the Night's Watch. > 10.1.1. Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall. > 10.1.1.1. Men of the Night's Watch are required to swear a vow, by which means their crimes are washed away and all debts are forgiven.",
+        "10. Watch > 10.1. An alternative for most punishments is joining the Night's Watch. > 10.1.1. Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall. > 10.1.1.2. Breaking the oath made to the Night's Watch is punishable by death.",
+        "10. Watch > 10.1. An alternative for most punishments is joining the Night's Watch. > 10.1.1. Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall. > 10.1.1.3. Refusing orders made by the Lord Commander of the Night's Watch can also be punishable by death.",
+        "10. Watch > 10.1. An alternative for most punishments is joining the Night's Watch. > 10.1.1. Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall. > 10.1.1.4. Women are not allowed to join the Night's Watch."
+      ]
+    },
+    "text_length": 688
+  },
+  {
+    "index": 10,
+    "text": "MAIN SECTION: Baking\n\n  [Section 11.1] A baker who mixes sawdust in his flour, might be fined. If such a fine cannot be paid, he might be whipped instead. Citations: https://scholarcommons.sc.edu/cgi/viewcontent.cgi?article=4273&context=sclr https://awoiaf.westeros.org/index.php/Laws_and_justice_of_the_Seven_Kingdoms https://gameofthrones.fandom.com/wiki/Laws_and_customs\n",
+    "metadata": {
+      "main_section": "11",
+      "main_title": "Baking",
+      "subsections": [
+        "11.1: A baker who mixes sawdust in his flour, might be fined. If such a fine cannot be paid, he might be whipped instead. Citations: https://scholarcommons.sc.edu/cgi/viewcontent.cgi?article=4273&context=sclr https://awoiaf.westeros.org/index.php/Laws_and_justice_of_the_Seven_Kingdoms https://gameofthrones.fandom.com/wiki/Laws_and_customs"
+      ],
+      "subsection_count": 1,
+      "page_numbers": [
+        1
+      ],
+      "section_ids": [
+        "11",
+        "11.1"
+      ],
+      "full_paths": [
+        "11. Baking",
+        "11. Baking > 11.1. A baker who mixes sawdust in his flour, might be fined. If such a fine cannot be paid, he might be whipped instead. Citations: https://scholarcommons.sc.edu/cgi/viewcontent.cgi?article=4273&context=sclr https://awoiaf.westeros.org/index.php/Laws_and_justice_of_the_Seven_Kingdoms https://gameofthrones.fandom.com/wiki/Laws_and_customs"
+      ]
+    },
+    "text_length": 374
+  }
+]
