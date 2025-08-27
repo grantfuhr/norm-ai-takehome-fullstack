@@ -1,21 +1,9 @@
 Document Parsing Summary
 ======================
 
-Total documents created: 44
+Total documents created: 33
 
 Document 0:
-  Section ID: 1
-  Section Title: Peace
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 1. Peace
-  Page Number: 1
-  Text Length: 5 characters
-  Text Preview: Peace...
-  Full Text: Peace
---------------------------------------------------------------------------------
-
-Document 1:
   Section ID: 1.1
   Section Title: The law requires petty lords and landed knights to take their disputes to their liege lord, and abide by his judgment, while disputes between great houses were adjudicated by the Crown.
   Hierarchy Level: 2
@@ -27,19 +15,7 @@ Document 1:
   Full Text: The law requires petty lords and landed knights to take their disputes to their liege lord, and abide by his judgment, while disputes between great houses were adjudicated by the Crown.
 --------------------------------------------------------------------------------
 
-Document 2:
-  Section ID: 2
-  Section Title: Religion
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 2. Religion
-  Page Number: 1
-  Text Length: 8 characters
-  Text Preview: Religion...
-  Full Text: Religion
---------------------------------------------------------------------------------
-
-Document 3:
+Document 1:
   Section ID: 2.1
   Section Title: king Maegor raised a set of laws which forbade holy men from carrying arms
   Hierarchy Level: 2
@@ -51,19 +27,7 @@ Document 3:
   Full Text: king Maegor raised a set of laws which forbade holy men from carrying arms
 --------------------------------------------------------------------------------
 
-Document 4:
-  Section ID: 3
-  Section Title: Widows
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 3. Widows
-  Page Number: 1
-  Text Length: 6 characters
-  Text Preview: Widows...
-  Full Text: Widows
---------------------------------------------------------------------------------
-
-Document 5:
+Document 2:
   Section ID: 3.1
   Section Title: The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit.
   Hierarchy Level: 2
@@ -75,7 +39,7 @@ Document 5:
   Full Text: The Widow's Law reaffirms the right of the eldest son (or eldest daughter, if there are no sons) to inherit.
 --------------------------------------------------------------------------------
 
-Document 6:
+Document 3:
   Section ID: 3.1.1
   Section Title: However, the law requires the heirs to maintain their father's surviving widow, no matter whether she had been a second, third, or even later wife, under the same conditions as she had been before her husband’s death.
   Hierarchy Level: 3
@@ -87,7 +51,7 @@ Document 6:
   Full Text: However, the law requires the heirs to maintain their father's surviving widow, no matter whether she had been a second, third, or even later wife, under the same conditions as she had been before her husband’s death.
 --------------------------------------------------------------------------------
 
-Document 7:
+Document 4:
   Section ID: 3.1.2
   Section Title: The widows could no longer be driven from their late husband’s castle, deprived of her servants or possessions, or her income.
   Hierarchy Level: 3
@@ -99,7 +63,7 @@ Document 7:
   Full Text: The widows could no longer be driven from their late husband’s castle, deprived of her servants or possessions, or her income.
 --------------------------------------------------------------------------------
 
-Document 8:
+Document 5:
   Section ID: 3.1.3
   Section Title: The law similarly prevented men from disinheriting the children from an earlier marriage in favor of children from a later marriage
   Hierarchy Level: 3
@@ -111,19 +75,7 @@ Document 8:
   Full Text: The law similarly prevented men from disinheriting the children from an earlier marriage in favor of children from a later marriage
 --------------------------------------------------------------------------------
 
-Document 9:
-  Section ID: 4
-  Section Title: Trials
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 4. Trials
-  Page Number: 1
-  Text Length: 6 characters
-  Text Preview: Trials...
-  Full Text: Trials
---------------------------------------------------------------------------------
-
-Document 10:
+Document 6:
   Section ID: 4.1
   Section Title: Trials of the Crown
   Hierarchy Level: 2
@@ -135,7 +87,7 @@ Document 10:
   Full Text: Trials of the Crown
 --------------------------------------------------------------------------------
 
-Document 11:
+Document 7:
   Section ID: 4.1.1
   Section Title: Trials, at least among the nobility, often begin with a prayer from a septon beseeching the Father Above to guide them towards justice. The accused and witnesses are sworn to honesty before he gives testimony at a trial. The accused is allowed to be present as witnesses give their testimony, in front of one or multiple judges.
   Hierarchy Level: 3
@@ -147,7 +99,7 @@ Document 11:
   Full Text: Trials, at least among the nobility, often begin with a prayer from a septon beseeching the Father Above to guide them towards justice. The accused and witnesses are sworn to honesty before he gives testimony at a trial. The accused is allowed to be present as witnesses give their testimony, in front of one or multiple judges.
 --------------------------------------------------------------------------------
 
-Document 12:
+Document 8:
   Section ID: 4.2
   Section Title: Trials by combat
   Hierarchy Level: 2
@@ -159,7 +111,7 @@ Document 12:
   Full Text: Trials by combat
 --------------------------------------------------------------------------------
 
-Document 13:
+Document 9:
   Section ID: 4.2.1
   Section Title: Any knight accused of wrongdoing is allowed by law to demand a trial by combat. The right to a trial by combat also extends to nobles who are not knighted.
   Hierarchy Level: 3
@@ -171,7 +123,7 @@ Document 13:
   Full Text: Any knight accused of wrongdoing is allowed by law to demand a trial by combat. The right to a trial by combat also extends to nobles who are not knighted.
 --------------------------------------------------------------------------------
 
-Document 14:
+Document 10:
   Section ID: 4.2.2
   Section Title: The accused and accusers are allowed to have champions fight in their place. When a person is killed in a trial by combat, by law it is not considered murder.
   Hierarchy Level: 3
@@ -183,7 +135,7 @@ Document 14:
   Full Text: The accused and accusers are allowed to have champions fight in their place. When a person is killed in a trial by combat, by law it is not considered murder.
 --------------------------------------------------------------------------------
 
-Document 15:
+Document 11:
   Section ID: 4.2.3
   Section Title: A more ancient custom, though seldom used, is a trial of seven, in which seven men fight on the side of the accusing party, and seven on the side of the accused party
   Hierarchy Level: 3
@@ -195,7 +147,7 @@ Document 15:
   Full Text: A more ancient custom, though seldom used, is a trial of seven, in which seven men fight on the side of the accusing party, and seven on the side of the accused party
 --------------------------------------------------------------------------------
 
-Document 16:
+Document 12:
   Section ID: 4.2.4
   Section Title: When the person who stands accused is royalty, their champion has to be a knight of the Kingsguard. When the accuser is royalty, however, they are within their rights to select a champion who is not a sworn member of the Kingsguard.
   Hierarchy Level: 3
@@ -207,19 +159,7 @@ Document 16:
   Full Text: When the person who stands accused is royalty, their champion has to be a knight of the Kingsguard. When the accuser is royalty, however, they are within their rights to select a champion who is not a sworn member of the Kingsguard.
 --------------------------------------------------------------------------------
 
-Document 17:
-  Section ID: 5
-  Section Title: Taxes
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 5. Taxes
-  Page Number: 1
-  Text Length: 5 characters
-  Text Preview: Taxes...
-  Full Text: Taxes
---------------------------------------------------------------------------------
-
-Document 18:
+Document 13:
   Section ID: 5.1
   Section Title: In the Seven Kingdoms, taxes are collected locally.
   Hierarchy Level: 2
@@ -231,7 +171,7 @@ Document 18:
   Full Text: In the Seven Kingdoms, taxes are collected locally.
 --------------------------------------------------------------------------------
 
-Document 19:
+Document 14:
   Section ID: 5.1.1
   Section Title: Lords pay taxes to the crown.
   Hierarchy Level: 3
@@ -243,7 +183,7 @@ Document 19:
   Full Text: Lords pay taxes to the crown.
 --------------------------------------------------------------------------------
 
-Document 20:
+Document 15:
   Section ID: 5.1.2
   Section Title: The Great Houses gather the taxes from their region.
   Hierarchy Level: 3
@@ -255,7 +195,7 @@ Document 20:
   Full Text: The Great Houses gather the taxes from their region.
 --------------------------------------------------------------------------------
 
-Document 21:
+Document 16:
   Section ID: 5.1.2.1
   Section Title: The Great Houses subsequently pay their taxes to the Crown. An exception are taxes owed to the Night’s Watch by the villages and holdfasts located in the New Gift which are paid in kind, not in gold.
   Hierarchy Level: 4
@@ -267,7 +207,7 @@ Document 21:
   Full Text: The Great Houses subsequently pay their taxes to the Crown. An exception are taxes owed to the Night’s Watch by the villages and holdfasts located in the New Gift which are paid in kind, not in gold.
 --------------------------------------------------------------------------------
 
-Document 22:
+Document 17:
   Section ID: 5.2
   Section Title: Lords can have treasurers in their service to handle the incoming taxes.
   Hierarchy Level: 2
@@ -279,19 +219,7 @@ Document 22:
   Full Text: Lords can have treasurers in their service to handle the incoming taxes.
 --------------------------------------------------------------------------------
 
-Document 23:
-  Section ID: 6
-  Section Title: Thievery
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 6. Thievery
-  Page Number: 2
-  Text Length: 8 characters
-  Text Preview: Thievery...
-  Full Text: Thievery
---------------------------------------------------------------------------------
-
-Document 24:
+Document 18:
   Section ID: 6.1
   Section Title: It is customary for a thief to be punished by losing a finger or a hand.
   Hierarchy Level: 2
@@ -303,7 +231,7 @@ Document 24:
   Full Text: It is customary for a thief to be punished by losing a finger or a hand.
 --------------------------------------------------------------------------------
 
-Document 25:
+Document 19:
   Section ID: 6.2
   Section Title: Pickpockets can likewise be punished by cutting off a hand.
   Hierarchy Level: 2
@@ -315,7 +243,7 @@ Document 25:
   Full Text: Pickpockets can likewise be punished by cutting off a hand.
 --------------------------------------------------------------------------------
 
-Document 26:
+Document 20:
   Section ID: 6.3
   Section Title: Those who steal from a sept can be considered to have stolen from the gods, and thus receive a harsher punishment.
   Hierarchy Level: 2
@@ -327,19 +255,7 @@ Document 26:
   Full Text: Those who steal from a sept can be considered to have stolen from the gods, and thus receive a harsher punishment.
 --------------------------------------------------------------------------------
 
-Document 27:
-  Section ID: 7
-  Section Title: Poaching
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 7. Poaching
-  Page Number: 2
-  Text Length: 8 characters
-  Text Preview: Poaching...
-  Full Text: Poaching
---------------------------------------------------------------------------------
-
-Document 28:
+Document 21:
   Section ID: 7.1
   Section Title: Poaching is forbidden. Lords are generally not tolerant towards poachers and punishments for poaching can include being forced to join the Night's Watch, losing a hand, or being forced to row ships.
   Hierarchy Level: 2
@@ -351,19 +267,7 @@ Document 28:
   Full Text: Poaching is forbidden. Lords are generally not tolerant towards poachers and punishments for poaching can include being forced to join the Night's Watch, losing a hand, or being forced to row ships.
 --------------------------------------------------------------------------------
 
-Document 29:
-  Section ID: 8
-  Section Title: Outlawry
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 8. Outlawry
-  Page Number: 2
-  Text Length: 8 characters
-  Text Preview: Outlawry...
-  Full Text: Outlawry
---------------------------------------------------------------------------------
-
-Document 30:
+Document 22:
   Section ID: 8.1
   Section Title: Outlaws are generally sentenced to death by hanging.
   Hierarchy Level: 2
@@ -375,19 +279,7 @@ Document 30:
   Full Text: Outlaws are generally sentenced to death by hanging.
 --------------------------------------------------------------------------------
 
-Document 31:
-  Section ID: 9
-  Section Title: Slavery
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 9. Slavery
-  Page Number: 2
-  Text Length: 7 characters
-  Text Preview: Slavery...
-  Full Text: Slavery
---------------------------------------------------------------------------------
-
-Document 32:
+Document 23:
   Section ID: 9.1
   Section Title: Slavery is illegal in the Seven Kingdoms.
   Hierarchy Level: 2
@@ -399,7 +291,7 @@ Document 32:
   Full Text: Slavery is illegal in the Seven Kingdoms.
 --------------------------------------------------------------------------------
 
-Document 33:
+Document 24:
   Section ID: 9.1.1
   Section Title: Both the old gods and the Faith of the Seven consider slavery to be an abomination, and as such, there have been no slaves in the Seven Kingdoms for thousands of years
   Hierarchy Level: 3
@@ -411,7 +303,7 @@ Document 33:
   Full Text: Both the old gods and the Faith of the Seven consider slavery to be an abomination, and as such, there have been no slaves in the Seven Kingdoms for thousands of years
 --------------------------------------------------------------------------------
 
-Document 34:
+Document 25:
   Section ID: 9.1.2
   Section Title: The punishment for selling people in the Seven Kingdoms is execution
   Hierarchy Level: 3
@@ -423,19 +315,7 @@ Document 34:
   Full Text: The punishment for selling people in the Seven Kingdoms is execution
 --------------------------------------------------------------------------------
 
-Document 35:
-  Section ID: 10
-  Section Title: Watch
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 10. Watch
-  Page Number: 2
-  Text Length: 5 characters
-  Text Preview: Watch...
-  Full Text: Watch
---------------------------------------------------------------------------------
-
-Document 36:
+Document 26:
   Section ID: 10.1
   Section Title: An alternative for most punishments is joining the Night's Watch.
   Hierarchy Level: 2
@@ -447,7 +327,7 @@ Document 36:
   Full Text: An alternative for most punishments is joining the Night's Watch.
 --------------------------------------------------------------------------------
 
-Document 37:
+Document 27:
   Section ID: 10.1.1
   Section Title: Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall.
   Hierarchy Level: 3
@@ -459,7 +339,7 @@ Document 37:
   Full Text: Debtors, poachers, thieves, and murderers are among those who might be forced to join the black brothers on the Wall.
 --------------------------------------------------------------------------------
 
-Document 38:
+Document 28:
   Section ID: 10.1.1.1
   Section Title: Men of the Night's Watch are required to swear a vow, by which means their crimes are washed away and all debts are forgiven.
   Hierarchy Level: 4
@@ -471,7 +351,7 @@ Document 38:
   Full Text: Men of the Night's Watch are required to swear a vow, by which means their crimes are washed away and all debts are forgiven.
 --------------------------------------------------------------------------------
 
-Document 39:
+Document 29:
   Section ID: 10.1.1.2
   Section Title: Breaking the oath made to the Night's Watch is punishable by death.
   Hierarchy Level: 4
@@ -483,7 +363,7 @@ Document 39:
   Full Text: Breaking the oath made to the Night's Watch is punishable by death.
 --------------------------------------------------------------------------------
 
-Document 40:
+Document 30:
   Section ID: 10.1.1.3
   Section Title: Refusing orders made by the Lord Commander of the Night's Watch can also be punishable by death.
   Hierarchy Level: 4
@@ -495,7 +375,7 @@ Document 40:
   Full Text: Refusing orders made by the Lord Commander of the Night's Watch can also be punishable by death.
 --------------------------------------------------------------------------------
 
-Document 41:
+Document 31:
   Section ID: 10.1.1.4
   Section Title: Women are not allowed to join the Night's Watch.
   Hierarchy Level: 4
@@ -507,19 +387,7 @@ Document 41:
   Full Text: Women are not allowed to join the Night's Watch.
 --------------------------------------------------------------------------------
 
-Document 42:
-  Section ID: 11
-  Section Title: Baking
-  Hierarchy Level: 1
-  Parent Section: None
-  Full Path: 11. Baking
-  Page Number: 2
-  Text Length: 6 characters
-  Text Preview: Baking...
-  Full Text: Baking
---------------------------------------------------------------------------------
-
-Document 43:
+Document 32:
   Section ID: 11.1
   Section Title: A baker who mixes sawdust in his flour, might be fined. If such a fine cannot be paid, he might be whipped instead. Citations: https://scholarcommons.sc.edu/cgi/viewcontent.cgi?article=4273&context=sclr https://awoiaf.westeros.org/index.php/Laws_and_justice_of_the_Seven_Kingdoms https://gameofthrones.fandom.com/wiki/Laws_and_customs
   Hierarchy Level: 2

@@ -156,6 +156,25 @@ class DocumentService:
         # Determine hierarchy level
         hierarchy_level = len(section_id.split('.'))
         
+        # Skip creating documents for top-level sections that only contain a title
+        # and have subsections (these are just headers)
+        if hierarchy_level == 1 and len(content) == 1:
+            # Check if this section has any subsections by looking through all lines
+            has_subsections = False
+            for line in all_lines:
+                line = line.strip()
+                # Look for section patterns that are subsections of current section
+                section_match = re.match(r'^(\d+(\.\d+)*)\.', line)
+                if section_match:
+                    found_section = section_match.group(1)
+                    if found_section.startswith(section_id + '.'):
+                        has_subsections = True
+                        break
+            
+            # Only skip if it has subsections (meaning it's just a header)
+            if has_subsections:
+                return
+        
         # Get section title
         section_title = section_titles.get(section_id, content[0] if content else "")
         
@@ -199,7 +218,7 @@ class DocumentService:
         
         # Create document
         document = Document(
-            text_resource=full_text,
+            text=full_text,
             metadata={
                 'section_id': section_id,
                 'section_title': section_title,
