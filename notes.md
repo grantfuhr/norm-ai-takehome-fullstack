@@ -24,6 +24,30 @@ Got it to run locally and return a result pretty quickly
 after catching the little typos. Now I need to improve the 
 actual returned citations. Right now they say source 'Unknown'. 
 I need them to return the actual subsection.
+Got the right subsections, but its not _super_ clean
+Trying a heirarchical node arrangement if time, not sure 
+how that performs in Qdrant
 
 
 ## Running Locally
+
+Testing
+```
+
+uv run pytest tests/
+```
+
+Sample Utils bit
+```
+uv run app/utils.py
+```
+
+
+Local server
+
+```
+uv run app/main.py
+```
+
+
+
