@@ -18,6 +18,7 @@ class QdrantService:
         self.k = k
     
     def connect(self) -> None:
+        # TODO should I use the docker version and a docker-compose setup?
         client = qdrant_client.QdrantClient(location=":memory:")
                 
         vstore = QdrantVectorStore(client=client, collection_name='temp')

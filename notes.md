@@ -25,11 +25,16 @@ after catching the little typos. Now I need to improve the
 actual returned citations. Right now they say source 'Unknown'. 
 I need them to return the actual subsection.
 Got the right subsections, but its not _super_ clean
+I get the right results, but the result headings
+aren't taking into account
+
 Trying a heirarchical node arrangement if time, not sure 
 how that performs in Qdrant
 
 
 ## Running Locally
+Install uv and run `uv sync` to download all deps and set
+up a virtual environment
 
 Testing
 ```
@@ -49,5 +54,12 @@ Local server
 uv run app/main.py
 ```
 
+or 
+```
+docker build -t norm-ai-takehome . &&
 
+docker run -e OPENAI_API_KEY=$OPENAI_API_KEY -p 8000:80 norm-ai-takehome
+```
 
+With more time I would do a docker compose setup with the qdrant db in its own container to simulate better
+(or use a live qdrant dev instance)
