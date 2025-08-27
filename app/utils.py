@@ -1,15 +1,16 @@
 from pydantic import BaseModel
 import qdrant_client
 from llama_index.vector_stores.qdrant import QdrantVectorStore
-from llama_index.embeddings import OpenAIEmbedding
-from llama_index.llms import OpenAI
-from llama_index.schema import Document
-from llama_index import (
+from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.llms.openai import OpenAI
+from llama_index.core.schema import Document
+from llama_index.core import (
     VectorStoreIndex,
     ServiceContext,
 )
 from dataclasses import dataclass
 import os
+from app.document import DocumentService
 
 key = os.environ['OPENAI_API_KEY']
 
@@ -27,33 +28,6 @@ class Output(BaseModel):
     query: str
     response: str
     citations: list[Citation]
-
-class DocumentService:
-
-    """
-    Update this service to load the pdf and extract its contents.
-    The example code below will help with the data structured required
-    when using the QdrantService.load() method below. Note: for this
-    exercise, ignore the subtle difference between llama-index's 
-    Document and Node classes (i.e, treat them as interchangeable).
-
-    # example code
-    def create_documents() -> list[Document]:
-
-        docs = [
-            Document(
-                metadata={"Section": "Law 1"},
-                text="Theft is punishable by hanging",
-            ),
-            Document(
-                metadata={"Section": "Law 2"},
-                text="Tax evasion is punishable by banishment.",
-            ),
-        ]
-
-        return docs
-
-     """
 
 class QdrantService:
     def __init__(self, k: int = 2):
