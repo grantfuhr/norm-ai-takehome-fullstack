@@ -44,34 +44,24 @@ class TestDocumentService:
     
     def test_expected_document_count(self, documents):
         """Test that the expected number of documents are created."""
-        # Based on the PDF structure, we expect 44 total documents
-        expected_count = 44
+        # Based on the new consolidated format, we expect 11 main section documents
+        expected_count = 11
         assert len(documents) == expected_count, f"Expected {expected_count} documents, got {len(documents)}"
     
-    def test_hierarchy_levels_distribution(self, documents):
-        """Test that documents are distributed across expected hierarchy levels."""
-        level_counts = {}
+    def test_main_sections_structure(self, documents):
+        """Test that all documents represent main sections with proper metadata."""
+        # All documents should be main sections in the new format
         for doc in documents:
-            level = doc.metadata.get('hierarchy_level', 0)
-            level_counts[level] = level_counts.get(level, 0) + 1
-        
-        # Expected distribution based on the PDF structure
-        expected_distribution = {
-            1: 11,  # Main sections (1. Peace, 2. Religion, etc.)
-            2: 15,  # Subsections (1.1, 2.1, etc.)
-            3: 13,  # Sub-subsections (3.1.1, 4.1.1, etc.)
-            4: 5    # Deep nested (5.1.2.1, 10.1.1.1, etc.)
-        }
-        
-        for level, expected_count in expected_distribution.items():
-            actual_count = level_counts.get(level, 0)
-            assert actual_count == expected_count, \
-                f"Level {level}: expected {expected_count} documents, got {actual_count}"
+            metadata = doc.metadata
+            assert 'main_section' in metadata, f"Document missing main_section metadata"
+            assert 'main_title' in metadata, f"Document missing main_title metadata"
+            assert 'subsections' in metadata, f"Document missing subsections metadata"
+            assert 'subsection_count' in metadata, f"Document missing subsection_count metadata"
+            assert isinstance(metadata['subsections'], list), "Subsections should be a list"
     
     def test_main_sections_exist(self, documents):
         """Test that all expected main sections are parsed."""
-        main_sections = [doc for doc in documents if doc.metadata.get('hierarchy_level') == 1]
-        section_ids = [doc.metadata.get('section_id') for doc in main_sections]
+        section_ids = [doc.metadata.get('main_section') for doc in documents]
         
         expected_main_sections = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
         
@@ -80,8 +70,8 @@ class TestDocumentService:
     
     def test_main_section_titles(self, documents):
         """Test that main sections have correct titles."""
-        main_sections = {doc.metadata.get('section_id'): doc.metadata.get('section_title') 
-                        for doc in documents if doc.metadata.get('hierarchy_level') == 1}
+        main_sections = {doc.metadata.get('main_section'): doc.metadata.get('main_title') 
+                        for doc in documents}
         
         expected_titles = {
             '1': 'Peace',
@@ -103,48 +93,54 @@ class TestDocumentService:
             assert actual_title == expected_title, \
                 f"Section {section_id}: expected '{expected_title}', got '{actual_title}'"
     
-    def test_subsection_parent_relationships(self, documents):
-        """Test that subsections correctly reference their parent sections."""
-        subsections = [doc for doc in documents if doc.metadata.get('hierarchy_level') == 2]
-        
-        for doc in subsections:
-            section_id = doc.metadata.get('section_id')
-            parent_section = doc.metadata.get('parent_section')
+    def test_subsection_tracking(self, documents):
+        """Test that subsections are properly tracked in metadata."""
+        for doc in documents:
+            metadata = doc.metadata
+            subsections = metadata.get('subsections', [])
+            section_ids = metadata.get('section_ids', [])
             
-            # Parent should be the first part of the section ID
-            expected_parent = section_id.split('.')[0]
-            assert parent_section == expected_parent, \
-                f"Section {section_id}: expected parent '{expected_parent}', got '{parent_section}'"
+            # Each subsection should start with the section ID
+            main_section = metadata['main_section']
+            for subsection in subsections:
+                assert subsection.startswith(f"{main_section}."), \
+                    f"Subsection '{subsection}' should start with '{main_section}.'"
+            
+            # Section IDs should include the main section
+            assert main_section in section_ids, \
+                f"Main section '{main_section}' should be in section_ids"
     
     def test_deep_nested_sections(self, documents):
-        """Test that deeply nested sections are parsed correctly."""
-        # Test specific known deep nested sections
-        deep_sections = [doc for doc in documents if doc.metadata.get('hierarchy_level') == 4]
-        section_ids = [doc.metadata.get('section_id') for doc in deep_sections]
+        """Test that deeply nested sections are included in consolidated documents."""
+        # Test specific known deep nested sections in their parent documents
+        section_5 = next((doc for doc in documents if doc.metadata.get('main_section') == '5'), None)
+        assert section_5 is not None, "Section 5 document not found"
+        assert '5.1.2.1' in section_5.metadata['section_ids'], "Deep nested section 5.1.2.1 not found in section 5"
         
-        expected_deep_sections = ['5.1.2.1', '10.1.1.1', '10.1.1.2', '10.1.1.3', '10.1.1.4']
-        
+        section_10 = next((doc for doc in documents if doc.metadata.get('main_section') == '10'), None)
+        assert section_10 is not None, "Section 10 document not found"
+        expected_deep_sections = ['10.1.1.1', '10.1.1.2', '10.1.1.3', '10.1.1.4']
         for section_id in expected_deep_sections:
-            assert section_id in section_ids, f"Deep nested section {section_id} not found"
+            assert section_id in section_10.metadata['section_ids'], f"Deep nested section {section_id} not found in section 10"
     
     def test_section_text_content(self, documents):
-        """Test that sections contain expected text content."""
-        # Test specific known sections
-        section_3_1_1 = next((doc for doc in documents 
-                             if doc.metadata.get('section_id') == '3.1.1'), None)
-        assert section_3_1_1 is not None, "Section 3.1.1 not found"
+        """Test that consolidated documents contain expected text content."""
+        # Test section 3 (Widows) consolidated document
+        section_3 = next((doc for doc in documents 
+                         if doc.metadata.get('main_section') == '3'), None)
+        assert section_3 is not None, "Section 3 document not found"
         
-        # Check that it contains expected keywords
-        text = section_3_1_1.text.lower()
-        assert 'widow' in text, "Section 3.1.1 should contain 'widow'"
-        assert 'maintain' in text, "Section 3.1.1 should contain 'maintain'"
-        assert 'heir' in text, "Section 3.1.1 should contain 'heir'"
+        # Check that it contains expected keywords from subsection 3.1.1
+        text = section_3.text.lower()
+        assert 'widow' in text, "Section 3 should contain 'widow'"
+        assert 'maintain' in text, "Section 3 should contain 'maintain'"
+        assert 'heir' in text, "Section 3 should contain 'heir'"
     
     def test_metadata_completeness(self, documents):
         """Test that all documents have complete metadata."""
         required_metadata_fields = [
-            'section_id', 'section_title', 'hierarchy_level', 
-            'main_section', 'full_path', 'page_number'
+            'main_section', 'main_title', 'subsections', 'subsection_count',
+            'page_numbers', 'section_ids', 'full_paths'
         ]
         
         for i, doc in enumerate(documents):
@@ -159,73 +155,92 @@ class TestDocumentService:
         section_id_pattern = re.compile(r'^\d+(\.\d+)*$')
         
         for doc in documents:
-            section_id = doc.metadata.get('section_id')
-            assert section_id_pattern.match(section_id), \
-                f"Section ID '{section_id}' doesn't match expected format"
+            # Test main section format
+            main_section = doc.metadata.get('main_section')
+            assert re.match(r'^\d+$', main_section), \
+                f"Main section '{main_section}' should be a single number"
+            
+            # Test all section IDs in the document
+            for section_id in doc.metadata.get('section_ids', []):
+                assert section_id_pattern.match(section_id), \
+                    f"Section ID '{section_id}' doesn't match expected format"
     
     def test_full_path_construction(self, documents):
-        """Test that full_path is constructed correctly."""
-        # Test a specific nested section
-        section_3_1_1 = next((doc for doc in documents 
-                             if doc.metadata.get('section_id') == '3.1.1'), None)
-        assert section_3_1_1 is not None, "Section 3.1.1 not found"
+        """Test that full_paths are constructed correctly."""
+        # Test section 3 (Widows) full paths
+        section_3 = next((doc for doc in documents 
+                         if doc.metadata.get('main_section') == '3'), None)
+        assert section_3 is not None, "Section 3 document not found"
         
-        full_path = section_3_1_1.metadata.get('full_path')
-        assert '3. Widows' in full_path, "Full path should contain main section"
-        assert '3.1.' in full_path, "Full path should contain parent section"
-        assert '3.1.1.' in full_path, "Full path should contain current section"
+        full_paths = section_3.metadata.get('full_paths', [])
+        assert len(full_paths) > 0, "Should have full_paths"
+        
+        # Check that the main section path exists
+        main_path = next((path for path in full_paths if path.startswith('3. Widows')), None)
+        assert main_path is not None, "Main section path should exist"
+        
+        # Check that nested paths exist
+        nested_path = next((path for path in full_paths if '3.1.1.' in path), None)
+        assert nested_path is not None, "Nested section path should exist"
     
     def test_page_number_assignment(self, documents):
         """Test that page numbers are assigned appropriately."""
-        # Early sections should be on page 1
+        # Early sections should include page 1
         section_1 = next((doc for doc in documents 
-                         if doc.metadata.get('section_id') == '1'), None)
+                         if doc.metadata.get('main_section') == '1'), None)
         assert section_1 is not None, "Section 1 not found"
-        assert section_1.metadata.get('page_number') == 1, "Section 1 should be on page 1"
+        assert 1 in section_1.metadata.get('page_numbers'), "Section 1 should include page 1"
         
-        # Later sections should be on page 2
+        # Later sections should include page 2
         section_10 = next((doc for doc in documents 
-                          if doc.metadata.get('section_id') == '10'), None)
+                          if doc.metadata.get('main_section') == '10'), None)
         assert section_10 is not None, "Section 10 not found"
-        assert section_10.metadata.get('page_number') == 2, "Section 10 should be on page 2"
+        assert 2 in section_10.metadata.get('page_numbers'), "Section 10 should include page 2"
     
     def test_text_cleaning(self, documents):
         """Test that PDF text is properly cleaned and joined."""
         # Check that text doesn't contain excessive whitespace or broken words
         for doc in documents:
             text = doc.text
-            # Text should not have multiple consecutive spaces
-            assert '  ' not in text, f"Document {doc.metadata.get('section_id')} has excessive whitespace"
+            # Text should not have multiple consecutive spaces within content lines
+            # (but intentional indentation is okay)
+            lines = text.split('\n')
+            for line in lines:
+                # Skip empty lines and indented lines (which are intentional formatting)
+                if line.strip() and not line.startswith('  '):
+                    assert '  ' not in line, f"Document {doc.metadata.get('main_section')} has excessive whitespace in line: {line}"
             # Text should not be empty
-            assert len(text.strip()) > 0, f"Document {doc.metadata.get('section_id')} has empty text"
+            assert len(text.strip()) > 0, f"Document {doc.metadata.get('main_section')} has empty text"
+            # Should contain section headers
+            assert 'MAIN SECTION:' in text, f"Document should contain main section header"
     
     def test_specific_law_content(self, documents):
         """Test parsing of specific law content."""
-        # Test theft punishment section
-        section_6_1 = next((doc for doc in documents 
-                           if doc.metadata.get('section_id') == '6.1'), None)
-        assert section_6_1 is not None, "Section 6.1 not found"
+        # Test theft punishment section (now in section 6 document)
+        section_6 = next((doc for doc in documents 
+                         if doc.metadata.get('main_section') == '6'), None)
+        assert section_6 is not None, "Section 6 document not found"
         
-        text = section_6_1.text.lower()
-        assert 'thief' in text, "Section 6.1 should mention thief"
-        assert 'finger' in text or 'hand' in text, "Section 6.1 should mention punishment"
+        text = section_6.text.lower()
+        assert 'thief' in text, "Section 6 should mention thief"
+        assert 'finger' in text or 'hand' in text, "Section 6 should mention punishment"
         
-        # Test trial by combat section  
-        section_4_2_1 = next((doc for doc in documents 
-                             if doc.metadata.get('section_id') == '4.2.1'), None)
-        assert section_4_2_1 is not None, "Section 4.2.1 not found"
+        # Test trial by combat section (now in section 4 document)
+        section_4 = next((doc for doc in documents 
+                         if doc.metadata.get('main_section') == '4'), None)
+        assert section_4 is not None, "Section 4 document not found"
         
-        text = section_4_2_1.text.lower()
-        assert 'knight' in text, "Section 4.2.1 should mention knight"
-        assert 'combat' in text, "Section 4.2.1 should mention combat"
+        text = section_4.text.lower()
+        assert 'knight' in text, "Section 4 should mention knight"
+        assert 'combat' in text, "Section 4 should mention combat"
     
     def test_no_duplicate_sections(self, documents):
-        """Test that there are no duplicate section IDs."""
-        section_ids = [doc.metadata.get('section_id') for doc in documents]
-        unique_section_ids = set(section_ids)
+        """Test that there are no duplicate main sections."""
+        main_sections = [doc.metadata.get('main_section') for doc in documents]
+        unique_main_sections = set(main_sections)
         
-        assert len(section_ids) == len(unique_section_ids), \
-            f"Found duplicate section IDs: {len(section_ids)} total, {len(unique_section_ids)} unique"
+        assert len(main_sections) == len(unique_main_sections), \
+            f"Found duplicate main sections: {len(main_sections)} total, {len(unique_main_sections)} unique"
 
 
 class TestDocumentServiceEdgeCases:
